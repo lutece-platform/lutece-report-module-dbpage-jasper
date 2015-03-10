@@ -1,29 +1,35 @@
-<div class="content-box">
-    <form method="post" enctype="multipart/form-data" action="jsp/admin/plugins/dbpage/DoModifySection.jsp">
-        <h2>#i18n{dbpage.modify_section.tableLabel}</h2>
-        <p>
-            <label for="section_title" >#i18n{dbpage.modify_section.rowTitleTitle} * :</label>
-              
-          <select id="section_title" name="section_title">	
-          <#list list_report as report >
-           <option <#if section.title=report.description>selected="selected"</#if>value="${report.description}">${report.description}</option> 
-          </#list>		
- 		</select>
-            <input type="hidden" name="dbpage_id" value="${dbpage_id}" />
-            <input type="hidden" name="section_id" value="${section_id}" />
-             <input type="hidden" name="type_id" value="${type_id}"/>
-             <input type="hidden" name="template_default" value="checked"/> 
-        </p>  
-        <p>
-            <label for="section_pool" >#i18n{dbpage.modify_section.rowTitlePool}  :</label>
-            <@combo name="section_pool" default_value="${section.pool}" items=pool_list />
-        </p>
-        <p>
-            <label for="role" >#i18n{dbpage.create_section.rowTitleRole}  :</label>
-            <@combo name="role" default_value="${section.role}" items=role_list />
-        </p>
-        <p>   
-            <input type="submit" value="#i18n{dbpage.modify_section.buttonModify}" class="button" tabindex="3" />
-        </p>
-    </form>
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="box box-primary">
+            <div class="box-header">
+                <h3 class="box-title">#i18n{dbpage.modify_section.tableLabel}</h3>
+                <form method="post" enctype="multipart/form-data" action="jsp/admin/plugins/dbpage/DoModifySection.jsp">
+                    <p>
+                        <label for="section_title" >#i18n{dbpage.modify_section.rowTitleTitle} * :</label>
+
+                        <select id="section_title" name="section_title">	
+                            <#list list_report as report >
+                            <option <#if section.title=report.description>selected="selected"</#if>value="${report.description}">${report.description}</option> 
+                            </#list>		
+                        </select>
+                        <input type="hidden" name="dbpage_id" value="${dbpage_id}" />
+                        <input type="hidden" name="section_id" value="${section_id}" />
+                        <input type="hidden" name="type_id" value="${type_id}"/>
+                        <input type="hidden" name="template_default" value="checked"/> 
+                    </p>  
+                    <p>
+                        <label for="section_pool" >#i18n{dbpage.modify_section.rowTitlePool}  :</label>
+                        <@combo name="section_pool" default_value="${section.pool}" items=pool_list />
+                    </p>
+                    <p>
+                        <label for="role" >#i18n{dbpage.create_section.rowTitleRole}  :</label>
+                        <@combo name="role" default_value="${section.role}" items=role_list />
+                    </p>
+                    <p>   
+                        <input class="btn btn-primary" type="submit" value="#i18n{dbpage.modify_section.buttonModify}"tabindex="3" />
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
